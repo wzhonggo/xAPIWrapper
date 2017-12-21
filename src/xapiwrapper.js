@@ -157,7 +157,9 @@ function isDate(date) {
             if (l.protocol && l.host)
                 return l.protocol + "//" + l.host;
             else
-                ADL.XAPIWrapper.log("Couldn't create base url from endpoint: " + this.lrs.endpoint);
+                 //l.protocol and l.host is "" when url is undefined on IE
+                // ADL.XAPIWrapper.log("Couldn't create base url from endpoint: " + this.lrs.endpoint);
+                ADL.XAPIWrapper.log("Couldn't create base url from endpoint: " + url);
         }
 
         function updateAuth(obj, username, password){
@@ -1454,6 +1456,17 @@ function isDate(date) {
             urlPort = (urlparts[3] === null ? ( urlparts[1] === 'http' ? '80' : '443') : urlparts[3]);
             xDomainRequest = (urlPort === location.port);
         }
+		
+		// add extended LMS-specified values to the URL
+		if (lrs !== null && lrs.extended !== undefined) {
+			extended = new Array();
+			for (prop in lrs.extended) {
+				extended.push(prop + "=" + encodeURIComponent(lrs.extended[prop]));
+			}
+			if (extended.length > 0) {
+				url += (url.indexOf("?") > -1 ? "&" : "?") + extended.join("&");
+			}
+		}
 
         //If it's not cross domain or we're not using IE, use the usual XmlHttpRequest
         var windowsVersionCheck = window.XDomainRequest && (window.XMLHttpRequest && new XMLHttpRequest().responseType === undefined);
