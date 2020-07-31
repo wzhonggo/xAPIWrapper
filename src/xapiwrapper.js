@@ -1441,6 +1441,8 @@ function isDate(date) {
 
         //Consolidate headers
         var headers = {};
+        // set no cache for some LRS server response not set no cache header
+        headers["Cache-Control"]="no-cache,no-store";
         headers["Content-Type"] = "application/json";
         headers["Authorization"] = auth;
         headers['X-Experience-API-Version'] = ADL.XAPIWrapper.xapiVersion;

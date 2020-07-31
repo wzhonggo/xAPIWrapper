@@ -7,10 +7,10 @@
     "url": "https://github.com/adlnet/xAPIWrapper.git"
   },
   "devDependencies": {
+    "doxstrap": "~0.0.5",
     "grunt": "~0.4.2",
-    "grunt-bump": "0.0.16",
+    "grunt-bump": "^0.8.0",
     "grunt-contrib-uglify": "~0.2.2",
-    "grunt-exec": "~0.4.6",
-    "doxstrap": "~0.0.5"
+    "grunt-exec": "~0.4.6"
   }
 }
