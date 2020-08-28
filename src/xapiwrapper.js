@@ -1288,20 +1288,21 @@ function isDate(date) {
     // parses the params in the url query string
     function parseQueryString()
     {
-        var qs, pairs, pair, ii, parsed;
-
-        qs = window.location.search.substr(1);
-
-        pairs = qs.split('&');
-        parsed = {};
-        for ( ii = 0; ii < pairs.length; ii++) {
-            pair = pairs[ii].split('=');
-            if (pair.length === 2 && pair[0]) {
-                parsed[pair[0]] = decodeURIComponent(pair[1]);
-            }
-        }
-
-        return parsed;
+        // var qs, pairs, pair, ii, parsed;
+        //
+        // qs = window.location.search.substr(1);
+        //
+        // pairs = qs.split('&');
+        // parsed = {};
+        // for ( ii = 0; ii < pairs.length; ii++) {
+        //     pair = pairs[ii].split('=');
+        //     if (pair.length === 2 && pair[0]) {
+        //         parsed[pair[0]] = decodeURIComponent(pair[1]);
+        //     }
+        // }
+        //
+        // return parsed;
+        return SB4API["queryMap"];
     }
 
 
