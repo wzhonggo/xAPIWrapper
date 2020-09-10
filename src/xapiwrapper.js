@@ -1302,7 +1302,7 @@ function isDate(date) {
         // }
         //
         // return parsed;
-        return SB4API["queryMap"];
+        return _.clone(SB4API["queryMap"]);
     }
 
 
